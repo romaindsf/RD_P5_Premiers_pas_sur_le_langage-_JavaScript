@@ -16,14 +16,24 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-
+//declarer les variables globales ici
 let leftArrow = document.querySelector(".arrow_left")
-console.log(leftArrow)
-leftArrow.addEventListener("click", () => {
+let rightArrow = document.querySelector(".arrow_right")
+let dots = document.querySelector(".dots")
+
+// ajout évènement sur les 2 fléches
+
+leftArrow.addEventListener("click_left", () => {
 	console.log("cliqué sur flèche de gauche")
 })
-let rightArrow = document.querySelector(".arrow_right")
-console.log(rightArrow)
-rightArrow.addEventListener("click", () => {
+
+rightArrow.addEventListener("click_right", () => {
 	console.log("cliqué sur flèche de droite")
 })
+
+//afficher les dots pour chaque slides
+for (let i = 0; i < slides.length; i++) {
+	let dot = document.createElement("div")
+	dot.classList.add("dot")
+	dots.appendChild(dot)
+}
