@@ -19,5 +19,11 @@ const slides = [
 
 let leftArrow = document.querySelector(".arrow_left")
 console.log(leftArrow)
+leftArrow.addEventListener("click", () => {
+	console.log("cliqué sur flèche de gauche")
+})
 let rightArrow = document.querySelector(".arrow_right")
 console.log(rightArrow)
+rightArrow.addEventListener("click", () => {
+	console.log("cliqué sur flèche de droite")
+})
