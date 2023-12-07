@@ -57,22 +57,27 @@ function slidesLoop(slideNumber, slidesLength){
 
 //function to change images
 function slidesShow(slideNumber) {
+	selectedDot.classList.remove("dot_selected")
 	switch(slideNumber){
 		case(0):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
 			textContent = `<p>Impressions tous formats <span>en boutique et en ligne</span></p>`
+			selectedDot = document.querySelector(".dot_0")
 			break
 		case(1):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
 			textContent =  `<p>Tirages haute définition grand format <span>pour vos bureaux et events</span></p>`
+			selectedDot = document.querySelector(".dot_1")
 			break
 		case(2):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide3.jpg")
 			textContent =  `<p>Grand choix de couleurs <span>de CMJN aux pantones</span></p>`
+			selectedDot = document.querySelector(".dot_2")
 			break
 		case(3):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide4.png")
 			textContent =  `<p>Autocollants <span>avec découpe laser sur mesure</span></p>`
+			selectedDot = document.querySelector(".dot_3")
 			break
 	}
 	return slideNumber
@@ -89,21 +94,7 @@ leftArrow.addEventListener("click", () => {
 	imageContent = slidesShow(slideNumber)
 	//change text content depending on slides
 	showText.innerHTML = textContent
-	selectedDot.classList.remove("dot_selected")
-	switch(slideNumber){
-		case(0):
-			selectedDot = document.querySelector(".dot_0")
-			break
-		case(1):
-			selectedDot = document.querySelector(".dot_1")
-			break
-		case(2):
-			selectedDot = document.querySelector(".dot_2")
-			break
-		case(3):
-			selectedDot = document.querySelector(".dot_3")
-			break
-	}
+	//change dot depending on slides
 	selectedDot.classList.add("dot_selected")
 })
 
@@ -113,21 +104,5 @@ rightArrow.addEventListener("click", () => {
 	slideNumber = slidesLoop(slideNumber, slidesLength)
 	imageContent = slidesShow(slideNumber)
 	showText.innerHTML = textContent
-	//change dot depending on slides
-	selectedDot.classList.remove("dot_selected")
-	switch(slideNumber){
-		case(0):
-			selectedDot = document.querySelector(".dot_0")
-			break
-		case(1):
-			selectedDot = document.querySelector(".dot_1")
-			break
-		case(2):
-			selectedDot = document.querySelector(".dot_2")
-			break
-		case(3):
-			selectedDot = document.querySelector(".dot_3")
-			break
-	}
 	selectedDot.classList.add("dot_selected")
 })
