@@ -43,14 +43,40 @@ selectedDot.classList.add("dot_selected")
 
 leftArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de gauche")
+	slideNumber -= 1
+	if(slideNumber < 0) {
+		slideNumber = slides.length - 1
+	}
+
+	switch(slideNumber){
+		case(0):
+		slideShow.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
+			break
+		case(1):
+			slideShow.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
+			break
+		case(2):
+			slideShow.setAttribute("src", "./assets/images/slideshow/slide3.jpg")
+			break
+		case(3):
+		slideShow.setAttribute("src", "./assets/images/slideshow/slide4.png")
+			break
+	}
+	console.log(slideNumber)
 })
 
 rightArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de droite")
 	slideNumber += 1
+
+	//return to 0 at the end
+
 	if(slideNumber > slides.length - 1){
 		slideNumber = 0
 	}
+
+	//change images
+
 	switch(slideNumber){
 		case(0):
 		slideShow.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
