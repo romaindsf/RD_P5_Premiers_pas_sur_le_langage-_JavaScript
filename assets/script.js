@@ -22,7 +22,6 @@ let leftArrow = document.querySelector(".arrow_left")
 let rightArrow = document.querySelector(".arrow_right")
 let slideNumber = 0
 let slideShow = document.querySelector(".banner-img")
-console.log(slideShow)
 
 //show differents contents depending on value of slideShow
 
@@ -49,7 +48,13 @@ leftArrow.addEventListener("click", () => {
 rightArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de droite")
 	slideNumber += 1
+	if(slideNumber > slides.length - 1){
+		slideNumber = 0
+	}
 	switch(slideNumber){
+		case(0):
+		slideShow.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
+			break
 		case(1):
 			slideShow.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
 			break
@@ -60,5 +65,5 @@ rightArrow.addEventListener("click", () => {
 		slideShow.setAttribute("src", "./assets/images/slideshow/slide4.png")
 			break
 	}
-	
+	console.log(slideNumber)
 })
