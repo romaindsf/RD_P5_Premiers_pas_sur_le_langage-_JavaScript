@@ -54,19 +54,23 @@ function slidesLoop(slideNumber, slidesLength){
 	return slideNumber
 }
 //function to change images
-function switchImages(slideNumber) {
+function slidesShow(slideNumber) {
 	switch(slideNumber){
 		case(0):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
+			textContent = `<p>Impressions tous formats <span>en boutique et en ligne</span></p>`
 			break
 		case(1):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
+			textContent =  `<p>Tirages haute définition grand format <span>pour vos bureaux et events</span></p>`
 			break
 		case(2):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide3.jpg")
+			textContent =  `<p>Grand choix de couleurs <span>de CMJN aux pantones</span></p>`
 			break
 		case(3):
 			showImage.setAttribute("src", "./assets/images/slideshow/slide4.png")
+			textContent =  `<p>Autocollants <span>avec découpe laser sur mesure</span></p>`
 			break
 	}
 	return slideNumber
@@ -80,23 +84,8 @@ leftArrow.addEventListener("click", () => {
 	// make sure the number is between 0 & 3
 	slideNumber = slidesLoop(slideNumber, slidesLength)
 	//display the right image
-	slideNumber = switchImages(slideNumber)
+	slideNumber = slidesShow(slideNumber)
 	//change text content depending on slides
-
-	switch(slideNumber){
-		case(0):
-		textContent = `<p>Impressions tous formats <span>en boutique et en ligne</span></p>`
-			break
-		case(1):
-		textContent =  `<p>Tirages haute définition grand format <span>pour vos bureaux et events</span></p>`
-			break
-		case(2):
-		textContent =  `<p>Grand choix de couleurs <span>de CMJN aux pantones</span></p>`
-			break
-		case(3):
-		textContent =  `<p>Autocollants <span>avec découpe laser sur mesure</span></p>`
-			break
-	}
 	showText.innerHTML = textContent
 })
 
@@ -104,21 +93,6 @@ rightArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de droite")
 	slideNumber += 1
 	slideNumber = slidesLoop(slideNumber, slidesLength)
-	slideNumber = switchImages(slideNumber)
-
-	switch(slideNumber){
-		case(0):
-		textContent = `<p>Impressions tous formats <span>en boutique et en ligne</span></p>`
-			break
-		case(1):
-		textContent =  `<p>Tirages haute définition grand format <span>pour vos bureaux et events</span></p>`
-			break
-		case(2):
-		textContent =  `<p>Grand choix de couleurs <span>de CMJN aux pantones</span></p>`
-			break
-		case(3):
-		textContent =  `<p>Autocollants <span>avec découpe laser sur mesure</span></p>`
-			break
-	}
+	slideNumber = slidesShow(slideNumber)
 	showText.innerHTML = textContent
 })
