@@ -37,6 +37,9 @@ let listDot = document.querySelectorAll(".dot")
 let selectedDot = listDot[slideNumber]
 selectedDot.classList.add("dot_selected")
 
+
+//ALL HAIL THE FUNCTIONS
+
 //function to reset the slides at both ends
 function slidesLoop(slideNumber, slidesLength){
 	if(slideNumber < 0) {
@@ -48,12 +51,8 @@ function slidesLoop(slideNumber, slidesLength){
 	console.log(slideNumber)
 	return slideNumber
 }
-
-//event listener for both arrows
-leftArrow.addEventListener("click", () => {
-	console.log("cliqué sur flèche de gauche")
-	slideNumber -= 1
-	slideNumber = slidesLoop(slideNumber, slidesLength)
+//function to change images
+function switchImages(slideNumber) {
 	switch(slideNumber){
 		case(0):
 		slideShow.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
@@ -68,27 +67,25 @@ leftArrow.addEventListener("click", () => {
 		slideShow.setAttribute("src", "./assets/images/slideshow/slide4.png")
 			break
 	}
+	return slideNumber
+}
+
+//event listener for both arrows
+leftArrow.addEventListener("click", () => {
+	console.log("cliqué sur flèche de gauche")
+	//value changes on click
+	slideNumber -= 1
+	// make sure the number is between 0 & 3
+	slideNumber = slidesLoop(slideNumber, slidesLength)
+	//display the right image
+	slideNumber = switchImages(slideNumber)
+
 })
 
 rightArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de droite")
 	slideNumber += 1
 	slideNumber = slidesLoop(slideNumber, slidesLength)
+	slideNumber = switchImages(slideNumber)
 
-	//change images
-
-	switch(slideNumber){
-		case(0):
-		slideShow.setAttribute("src", "./assets/images/slideshow/slide1.jpg")
-			break
-		case(1):
-			slideShow.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
-			break
-		case(2):
-			slideShow.setAttribute("src", "./assets/images/slideshow/slide3.jpg")
-			break
-		case(3):
-		slideShow.setAttribute("src", "./assets/images/slideshow/slide4.png")
-			break
-	}
 })
