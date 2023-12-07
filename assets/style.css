@@ -127,6 +127,7 @@ header {
 	position: absolute;
 	border: none;
 	background: transparent;
+	cursor: pointer;
 }
 #banner .arrow_left {
 	left: 10px;
