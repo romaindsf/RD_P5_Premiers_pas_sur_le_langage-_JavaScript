@@ -23,6 +23,7 @@ let rightArrow = document.querySelector(".arrow_right")
 let slideNumber = 0
 let slidesLength = slides.length
 let showImage = document.querySelector(".banner-img")
+let imageContent = ""
 let showText = document.querySelector("#banner p" )
 let textContent = ""
 
@@ -40,7 +41,7 @@ let selectedDot = listDot[slideNumber]
 selectedDot.classList.add("dot_selected")
 
 
-//ALL HAIL THE FUNCTIONS
+//ALL HAIL THE FUNCTIONS ********************************************************
 
 //function to reset the slides at both ends
 function slidesLoop(slideNumber, slidesLength){
@@ -53,6 +54,7 @@ function slidesLoop(slideNumber, slidesLength){
 	console.log(slideNumber)
 	return slideNumber
 }
+
 //function to change images
 function slidesShow(slideNumber) {
 	switch(slideNumber){
@@ -84,15 +86,48 @@ leftArrow.addEventListener("click", () => {
 	// make sure the number is between 0 & 3
 	slideNumber = slidesLoop(slideNumber, slidesLength)
 	//display the right image
-	slideNumber = slidesShow(slideNumber)
+	imageContent = slidesShow(slideNumber)
 	//change text content depending on slides
 	showText.innerHTML = textContent
+	selectedDot.classList.remove("dot_selected")
+	switch(slideNumber){
+		case(0):
+			selectedDot = document.querySelector(".dot_0")
+			break
+		case(1):
+			selectedDot = document.querySelector(".dot_1")
+			break
+		case(2):
+			selectedDot = document.querySelector(".dot_2")
+			break
+		case(3):
+			selectedDot = document.querySelector(".dot_3")
+			break
+	}
+	selectedDot.classList.add("dot_selected")
 })
 
 rightArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de droite")
 	slideNumber += 1
 	slideNumber = slidesLoop(slideNumber, slidesLength)
-	slideNumber = slidesShow(slideNumber)
+	imageContent = slidesShow(slideNumber)
 	showText.innerHTML = textContent
+	//change dot depending on slides
+	selectedDot.classList.remove("dot_selected")
+	switch(slideNumber){
+		case(0):
+			selectedDot = document.querySelector(".dot_0")
+			break
+		case(1):
+			selectedDot = document.querySelector(".dot_1")
+			break
+		case(2):
+			selectedDot = document.querySelector(".dot_2")
+			break
+		case(3):
+			selectedDot = document.querySelector(".dot_3")
+			break
+	}
+	selectedDot.classList.add("dot_selected")
 })
