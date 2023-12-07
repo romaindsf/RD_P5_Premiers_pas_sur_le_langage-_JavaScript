@@ -17,10 +17,14 @@ const slides = [
 	}
 ]
 
-//Variables globales déclarées
+//Global variables stated
 let leftArrow = document.querySelector(".arrow_left")
 let rightArrow = document.querySelector(".arrow_right")
 let slideNumber = 0
+let slideShow = document.querySelector(".banner-img")
+console.log(slideShow)
+
+//show differents contents depending on value of slideShow
 
 //display dots equal to the numbers of slides
 
@@ -44,4 +48,17 @@ leftArrow.addEventListener("click", () => {
 
 rightArrow.addEventListener("click", () => {
 	console.log("cliqué sur flèche de droite")
+	slideNumber += 1
+	switch(slideNumber){
+		case(1):
+			slideShow.setAttribute("src", "./assets/images/slideshow/slide2.jpg")
+			break
+		case(2):
+			slideShow.setAttribute("src", "./assets/images/slideshow/slide3.jpg")
+			break
+		case(3):
+		slideShow.setAttribute("src", "./assets/images/slideshow/slide4.png")
+			break
+	}
+	
 })
