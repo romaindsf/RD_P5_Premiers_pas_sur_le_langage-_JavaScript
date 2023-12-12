@@ -35,7 +35,7 @@ function slideshow(slideNumber) {
 	if(slideNumber < 0) {slideNumber = slides.length - 1}
 	if(slideNumber > slides.length - 1) {slideNumber = 0}	//loop
 	let imageContent =  document.querySelector(".banner-img")
-	imageContent.src = "./assets/images/slideshow/" + slides[slideNumber].image
+	imageContent.src = `./assets/images/slideshow/${slides[slideNumber].image}`
 	let textContent = document.querySelector("#banner p")
 	textContent.innerHTML= slides[slideNumber].tagLine
 
