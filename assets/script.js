@@ -17,42 +17,42 @@ const slides = [
 	}
 ]
 
-//declaring variables
-let slideNumber = 0
+// Variables
+let slideIndex = 0
 let leftArrow = document.querySelector(".arrow_left")
 let rightArrow = document.querySelector(".arrow_right")
 
-// properties of dots at first
+// Number of dots in slideshow
 slides.forEach(() => {
 	let dot = document.createElement("div")
 	let dots = document.querySelector(".dots").appendChild(dot)
 	dot.classList.add("dot")
 })
 
-//first dot is selected at first
+// First dot is selected at first
 let selectedDot = document.querySelector(".dot:first-child")
 selectedDot.classList.add("dot_selected")
 
-//Function
-function slideshow(slideNumber) {
-	if(slideNumber < 0) {slideNumber = slides.length - 1}
-	if(slideNumber > slides.length - 1) {slideNumber = 0}	//loop rules
+// Function
+function slideshow(slideIndex) {
+	if(slideIndex < 0) {slideIndex = slides.length - 1}
+	if(slideIndex > slides.length - 1) {slideIndex = 0}	//loop rules
 	selectedDot.classList.remove("dot_selected")
 	let imageContent =  document.querySelector(".banner-img")
-	imageContent.src = `./assets/images/slideshow/${slides[slideNumber].image}`
+	imageContent.src = `./assets/images/slideshow/${slides[slideIndex].image}`
 	let textContent = document.querySelector("#banner p")
-	textContent.innerHTML= slides[slideNumber].tagLine	//image & text change
-	selectedDot = document.querySelector(`.dot:nth-child(${slideNumber + 1})`)
+	textContent.innerHTML= slides[slideIndex].tagLine	//image & text change
+	selectedDot = document.querySelector(`.dot:nth-child(${slideIndex + 1})`)
 	selectedDot.classList.add("dot_selected")			//dot change
-	return slideNumber
+	return slideIndex
 }
 
-//event listeners
+// Event listeners
 rightArrow.addEventListener("click", () => {
-	slideNumber += 1
-	slideNumber = slideshow(slideNumber)
+	slideIndex += 1
+	slideIndex = slideshow(slideIndex)
 })
 leftArrow.addEventListener("click", () => {
-	slideNumber -= 1
-	slideNumber = slideshow(slideNumber)
+	slideIndex -= 1
+	slideIndex = slideshow(slideIndex)
 })
