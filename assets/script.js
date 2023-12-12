@@ -25,20 +25,22 @@ let rightArrow = document.querySelector(".arrow_right")
 slides.forEach(() => {
 	let dot = document.createElement("div")
 	let dots = document.querySelector(".dots").appendChild(dot)
-	dot.classList.add("dot")					//count the number of dots
+	dot.classList.add("dot")
 })
-//let selectedDot = document.querySelector(".dot:first-child")
-//selectedDot.classList.add("dot_selected") 		//select first dot first
+let selectedDot = document.querySelector(".dot:first-child")
+selectedDot.classList.add("dot_selected")
 
 //Function
 function slideshow(slideNumber) {
 	if(slideNumber < 0) {slideNumber = slides.length - 1}
-	if(slideNumber > slides.length - 1) {slideNumber = 0}	//loop
+	if(slideNumber > slides.length - 1) {slideNumber = 0}
+	selectedDot.classList.remove("dot_selected")
 	let imageContent =  document.querySelector(".banner-img")
 	imageContent.src = `./assets/images/slideshow/${slides[slideNumber].image}`
 	let textContent = document.querySelector("#banner p")
 	textContent.innerHTML= slides[slideNumber].tagLine
-
+	selectedDot = document.querySelector(`.dot:nth-child(${slideNumber + 1})`)
+	selectedDot.classList.add("dot_selected")
 	return slideNumber
 }
 //event listeners
