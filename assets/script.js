@@ -25,15 +25,23 @@ let rightArrow = document.querySelector(".arrow_right")
 slides.forEach(() => {
 	let dot = document.createElement("div")
 	let dots = document.querySelector(".dots").appendChild(dot)
+
 	dot.classList.add("dot")					//count the number of dots
 })
 //let selectedDot = document.querySelector(".dot:first-child")
 //selectedDot.classList.add("dot_selected") 		//select first dot first
 
+	dot.classList.add("dot") 					//count the number of dots
+})
+let selectedDot = document.querySelector(".dot:first-child")
+selectedDot.classList.add("dot_selected") 		//select first dot first
+
+
 //Function
 function slideshow(slideNumber) {
 	if(slideNumber < 0) {slideNumber = slides.length - 1}
 	if(slideNumber > slides.length - 1) {slideNumber = 0}	//loop
+
 	let imageContent =  document.querySelector(".banner-img")
 	imageContent.src = "./assets/images/slideshow/" + slides[slideNumber].image
 	let textContent = document.querySelector("#banner p")
@@ -41,6 +49,20 @@ function slideshow(slideNumber) {
 
 	return slideNumber
 }
+
+	selectedDot.classList.remove("dot_selected")			//reset selected
+
+	slides.forEach(() => {
+		if (slides[slideNumber] == slideNumber) {
+			let imageContent =  document.querySelector(".banner-img")
+			imageContent.src = slides[slideNumber].image
+			let textContent = document.querySelector("#banner p")
+			textContent.innerHTML(slides[slideNumber].tagLine)
+		}
+	})
+	return slideNumber
+}
+//slides[slideNumber] == slideNumber
 //event listeners
 rightArrow.addEventListener("click", () => {
 	slideNumber += 1
