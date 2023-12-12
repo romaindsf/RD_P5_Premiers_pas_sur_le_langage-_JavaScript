@@ -16,6 +16,7 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
 //declaring variables
 let slideNumber = 0
 let leftArrow = document.querySelector(".arrow_left")
@@ -27,6 +28,7 @@ slides.forEach(() => {
 	let dots = document.querySelector(".dots").appendChild(dot)
 	dot.classList.add("dot")
 })
+
 //first dot is selected at first
 let selectedDot = document.querySelector(".dot:first-child")
 selectedDot.classList.add("dot_selected")
@@ -44,6 +46,7 @@ function slideshow(slideNumber) {
 	selectedDot.classList.add("dot_selected")			//dot change
 	return slideNumber
 }
+
 //event listeners
 rightArrow.addEventListener("click", () => {
 	slideNumber += 1
